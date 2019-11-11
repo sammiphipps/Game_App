@@ -53,3 +53,43 @@ Game.create(
     min_player: 2,
     max_player: 4
 )
+
+Game.create(
+    name: "Quarters",
+    category: drinking,
+    description: "A drinking game involving bouncing quarters into cups",
+    basic_rules: "Players take turns trying to bounce a quarter off a table into a cup, passing the cup to the next player once they do. Should the other cup in play catch up to them, them must drink.",
+    image_link: "https://usercontent2.hubstatic.com/13194651_f520.jpg",
+    min_player: 3,
+    # max_player: null    
+)
+
+Game.create(
+    name: "Beer Pong",
+    category: drinking,
+    description: "Players throw a ping pong ball into cups (often of beer).",
+    basic_rules: "Teams take turns throwing or bouncing ping pong balls across the table, attempting to make it into one of a series of cups. Should the ball land in a cup, that cup is removed from the table until all are gone. Losing team drinks.",
+    image_link: "https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1705/wavebreakmediamicro170501108/77566969-friends-enjoying-beer-pong-game-on-table-in-bar.jpg",
+    min_player: 2,
+    max_player: 4
+)
+
+Game.create(
+    name: "Ping Pong",
+    category: other,
+    description: "Sport where players hit a ball across the table using small rackets.",
+    basic_rules: "Teams take turns hitting ping pong ball across the table. Points are conceded by hitting the net, or allowing more than one bounce per side of the table.",
+    image_link: "https://i.ytimg.com/vi/-_cviYR1V3k/maxresdefault.jpg",
+    min_player: 2,
+    max_player: 4
+)
+
+Game.create(
+    name: "Tag",
+    category: other,
+    description: "A game of chase wherein one player is IT and attempts to catch another player.",
+    basic_rules: "The designated tagger attempts to touch another player. By succeeding in this the other player then becomes IT and the game begins again.",
+    image_link: "https://upload.wikimedia.org/wikipedia/commons/4/46/Jongensspelen_10.jpg",
+    min_player: 2,
+    # max_player: null 
+)

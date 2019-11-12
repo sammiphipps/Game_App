@@ -7,10 +7,19 @@ fetch('http://localhost:3000/categories')
 
 function loadCategories(categories){
     categories.map(category => {
-        const category_link = document.createElement('a')
-        category_link.className = category.name.toLowerCase()
-        category_link.innerHTML = `<h2>${category.name}</h2>`
-        category_link.href = "#"
-        mainContainer.appendChild(category_link)
+        const link = document.createElement('a')
+        const button = document.createElement('button')
+
+        link.href= `show.html?category_id=${category.id}`
+        button.textContent = category.name
+        button.className = category.name.toLowerCase()
+
+        button.style.fontSize = "24px"
+        button.style.borderRadius = "25px"
+        button.style.fontFamily = "'KoHo', sans-serif"
+        button.style.padding = "0.2rem 1.5rem"
+
+        mainContainer.appendChild(link)
+        link.appendChild(button)
     })
 }

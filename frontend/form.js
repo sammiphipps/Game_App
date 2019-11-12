@@ -1,58 +1,113 @@
+const baseUrl = 'http://localhost:3000'
 const params = new URLSearchParams(window.location.search)
 const game_id = params.get("game_id")
 const form = document.querySelector("form")
-const categorySelect = document.querySelector('select')
+const gameName = document.querySelector('#name')
+const gameCategory = document.querySelector('select')
+const gameDescription = document.querySelector('#description')
+const gameRules = document.querySelector('#basic_rules')
+const gameImage = document.querySelector('#image_link')
+const gameMinPlayer = document.querySelector('#min_player')
+const gameMaxPlayer = document.querySelector('#max_player')
+const formButton = document.querySelector('#formButton')
 
-fetch("http://localhost:3000/categories")
+//send request to categories to load category select on the form 
+fetch(`${baseUrl}/categories`)
     .then(response => response.json())
     .then(loadCategorySelect)
     .catch(error => console.log(error))
 
+//using the variables pulled above change form based on it you are updating information or creating a new game
 if (game_id != null){
-    fetch(`http://localhost:3000/games/${game_id}`)
-        .then(response => response.json())
+    fetch(`${baseUrl}/games/${game_id}`)
+    .then(response => response.json())
         .then(loadGameInfo)
         .catch(error => console.log(error))
+
+    updateFormButton("Update", updateFetch())
 } 
 else {
+    updateFormButton("Submit", postFetch())
 }
+
 
 function loadCategorySelect(categories){
     categories.map(
         category => {
             const categoryOption = document.createElement('option')
+            categoryOption.value = category.id
             categoryOption.textContent = category.name
-            categorySelect.appendChild(categoryOption)
+            gameCategory.appendChild(categoryOption)
         }
     )
 }
 
 function loadGameInfo(gameInfo){
     //load Name
-    const gameName = document.getElementsByName('name')[0]
     gameName.value = gameInfo.name
 
     //load category
-    categorySelect.value = gameInfo.category.name
+    gameCategory.value = gameInfo.category.id
 
     //load description 
-    const gameDescription = document.getElementsByName('description')[0]
     gameDescription.value = gameInfo.description
 
     //load rules 
-    const gameRules = document.getElementsByName('basic_rules')[0]
     gameRules.value = gameInfo.basic_rules
 
     //load image link
-    const gameImage = document.getElementsByName('image_link')[0]
     gameImage.value = gameInfo.image_link
 
     //load min amount 
-    const gameMinPlayer = document.getElementsByName('min_player')[0]
     gameMinPlayer.value = gameInfo.min_player
 
     //load max amount 
-    const gameMaxPlayer = document.getElementsByName('max_player')[0]
     gameMaxPlayer.value = gameInfo.max_player
+}
 
+function updateFormButton(content, fetchMethod){
+    formButton.textContent = content
+    formButton.addEventListener("click", fetchMethod)
+}
+
+function updateFetch(){
+    //set options needed for put request 
+    const options = {
+        method: "PUT",
+        header: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: gameName.value,
+            category_id: gameCategory.value,
+            description: gameDescription.value, 
+            basic_rules: gameRules.value, 
+            image_link: gameImage.value, 
+            min_player: gameMinPlayer.value, 
+            max_player: gameMaxPlayer.value
+        })
+    }
+
+    fetch(`${baseUrl}/games/${game_id}`, options)
+}
+
+function postFetch(){
+    //set options needed for post request
+    const options = {
+        method: "POST",
+        header: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: gameName.value,
+            category_id: gameCategory.value,
+            description: gameDescription.value, 
+            basic_rules: gameRules.value, 
+            image_link: gameImage.value, 
+            min_player: gameMinPlayer.value, 
+            max_player: gameMaxPlayer.value
+        })
+    }
+
+    fetch(`${baseUrl}/games`, options)
 }

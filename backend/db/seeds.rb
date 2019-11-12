@@ -29,7 +29,7 @@ Game.create(
     category: card, 
     description: "A card game based on matching pairs",
     basic_rules: "Ask another player for a card on your turn. If they don't have it, draw another card from the pile",
-    image_link: "https://images-na.ssl-images-amazon.com/images/I/71BeX%2BOQkuL.png",
+    image_link: "https://media.buzzle.com/media/images-en/illustrations/recreational-games/card-games/1200-605659-rules-play-go-fish-card-game.jpg",
     min_player: 2, 
     max_player: 5
 )

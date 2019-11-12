@@ -22,7 +22,6 @@ function loadHeader(category_name){
 
 function loadGames(games){
     games.map(game => {
-        console.log(game)
         //create a div container
         const gameContainer = document.createElement('div')
         gameContainer.className = "gameContainer"
@@ -50,6 +49,9 @@ function loadGames(games){
         //p for rules 
         const gameRules = document.createElement('p')
         gameRules.textContent = `Rules: ${game.basic_rules}`
+        //create container for buttons 
+        const buttonContainer = document.createElement('div')
+        buttonContainer.className = "buttonContainer"
         //button link for update button to form 
         const updateLink = document.createElement('a')
         updateLink.innerHTML = `<button>Update</button>`
@@ -62,7 +64,9 @@ function loadGames(games){
         const deleteSubmit = document.createElement('button')
         deleteSubmit.textContent = "Delete"
         deleteForm.appendChild(deleteSubmit)
+
+        buttonContainer.append(updateLink, deleteForm)
         //append everything to the container
-        gameContainer.append(gameFigure, gameTitle, gameDescription, gameRules, updateLink, deleteForm)
+        gameContainer.append(gameFigure, gameTitle, gameDescription, gameRules, buttonContainer)
     })
 }

@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=KoHo&display=swap');
 
- body{
+body {
     margin: 0px;
     padding: 0px; 
     font-family: 'KoHo', sans-serif;
     background-color: rgb(255, 255, 240);
 }
 
-main{
+h1 {
+    text-align: center;
+}
+
+main {
     display: flex;
     flex-direction: column;
 }
@@ -16,7 +20,23 @@ figure {
     float: left;
 } 
 
-img{
+img {
     height: 9rem;
     width: 15rem;
+}
+
+.buttonContainer {
+    display: inline-block;
+}
+
+.buttonContainer > form {
+    display: inline-block;
+    margin-left: 1rem; 
+}
+
+button {
+    font-size: 15px; 
+    padding: 0.2rem 0.5rem;
+    border-radius: 25px; 
+    font-family: 'KoHo', sans-serif;
 }

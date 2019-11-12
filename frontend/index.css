@@ -7,22 +7,22 @@ body{
     background-color: rgb(255, 255, 240);
 }
 
-.card > h2 {
+.card {
     background-image: linear-gradient(rgba(255,0,0,0.3), rgba(255,0,0,0.8));    
 }
 
-.board > h2 {
+.board{
     background-image: linear-gradient(rgba(176,196,222,0.3), rgba(176,196,222,0.9));    
 }
 
-.video > h2 {
+.video{
     background-image: linear-gradient(rgba(60, 179, 113,0.2), rgba(60,179,113,0.8));    
 }
 
-.drinking > h2 {
+.drinking{
     background-image: linear-gradient(rgba(212,175,55,0.4), rgba(212,175,55,0.9));    
 }
 
-.other > h2 {
+.other{
     background-image: linear-gradient( rgba(220,220,220,0.5), rgba(220,220,220,1));    
 }

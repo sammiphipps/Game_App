@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Games API</title>
+</head>
+<body>
+    <form action="http://localhost:3000/games">
+        <label>Game Name:</label>
+        <input name = "name"/>
+        <br/>
+        <label>Category:</label>
+        <select name= "category_id" id= "gameCategory">
+            <option disabled> Please Select A Category</option>
+        </select>
+        <br/>
+        <label>Description:</label>
+        <textarea name="description"></textarea>
+        <br/>
+        <label>Rules:</label>
+        <textarea name="basic_rules"></textarea>
+        <br/>
+        <label>Image Link:</label>
+        <input name="image_link"/>
+        <br/>
+        <label>Min Player:</label>
+        <input type="integer" name= "min_player"/>
+        <br/>
+        <label>Max Player:</label>
+        <input type="integer" name= "max_player"/>
+        <br/>
+        <input type="submit"/>
+    
+    </form>
+</body>
+</html>

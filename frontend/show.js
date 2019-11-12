@@ -55,7 +55,7 @@ function loadGames(games){
         //button link for update button to form 
         const updateLink = document.createElement('a')
         updateLink.innerHTML = `<button>Update</button>`
-        updateLink.href = "#"
+        updateLink.href = `form.html?game_id=${game.id}`
         //delete link
         const deleteForm = document.createElement('form')
         // deleteForm.method = "DELETE"

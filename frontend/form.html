@@ -10,7 +10,7 @@
 <body>
     <form action="http://localhost:3000/games">
         <label>Game Name:</label>
-        <input name = "name" class="formElements"/>
+        <input name = "name" id="name" class="formElements"/>
         <br/>
         <label>Category:</label>
         <select name= "category_id" id= "gameCategory"  class="formElements">
@@ -18,21 +18,21 @@
         </select>
         <br/>
         <label>Description:</label>
-        <textarea name="description" class="formElements"></textarea>
+        <textarea name="description" id="description" class="formElements"></textarea>
         <br/>
         <label>Rules:</label>
-        <textarea name="basic_rules" class="formElements"></textarea>
+        <textarea name="basic_rules" id="basic_rules" class="formElements"></textarea>
         <br/>
         <label>Image Link:</label>
-        <input name="image_link" class="formElements"/>
+        <input name="image_link" id="image_link" class="formElements"/>
         <br/>
         <label>Min Players:</label>
-        <input type="integer" name= "min_player" class="formElements"/>
+        <input type="integer" name= "min_player" id="min_player" class="formElements"/>
         <br/>
         <label>Max Players:</label>
-        <input type="integer" name= "max_player" class="formElements"/>
+        <input type="integer" name= "max_player" id="max_player" class="formElements"/>
         <br/>
-        <input type="submit"/>
+        <button id="formButton"></button>
     </form>
     <script src="form.js"></script>
 </body>

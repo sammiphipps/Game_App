@@ -11,21 +11,25 @@ const gameMinPlayer = document.querySelector('#min_player')
 const gameMaxPlayer = document.querySelector('#max_player')
 const formButton = document.querySelector('#formButton')
 
+//send request to categories to load category select on the form 
 fetch(`${baseUrl}/categories`)
-.then(response => response.json())
+    .then(response => response.json())
     .then(loadCategorySelect)
     .catch(error => console.log(error))
 
+//using the variables pulled above change form based on it you are updating information or creating a new game
 if (game_id != null){
     fetch(`${baseUrl}/games/${game_id}`)
     .then(response => response.json())
         .then(loadGameInfo)
         .catch(error => console.log(error))
 
-    addUpdateButton("Update")
+    updateFormButton("Update", updateFetch())
 } 
 else {
+    updateFormButton("Submit", postFetch())
 }
+
 
 function loadCategorySelect(categories){
     categories.map(
@@ -43,7 +47,6 @@ function loadGameInfo(gameInfo){
     gameName.value = gameInfo.name
 
     //load category
-    // gameCategory.value = gameInfo.category.name
     gameCategory.value = gameInfo.category.id
 
     //load description 
@@ -62,12 +65,13 @@ function loadGameInfo(gameInfo){
     gameMaxPlayer.value = gameInfo.max_player
 }
 
-function addUpdateButton(content){
+function updateFormButton(content, fetchMethod){
     formButton.textContent = content
-    formButton.addEventListener("click")
+    formButton.addEventListener("click", fetchMethod)
 }
 
 function updateFetch(){
+    //set options needed for put request 
     const options = {
         method: "PUT",
         header: {
@@ -83,5 +87,27 @@ function updateFetch(){
             max_player: gameMaxPlayer.value
         })
     }
-    fetch(`${base_url}/games/${game_id}`, options)
+
+    fetch(`${baseUrl}/games/${game_id}`, options)
+}
+
+function postFetch(){
+    //set options needed for post request
+    const options = {
+        method: "POST",
+        header: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: gameName.value,
+            category_id: gameCategory.value,
+            description: gameDescription.value, 
+            basic_rules: gameRules.value, 
+            image_link: gameImage.value, 
+            min_player: gameMinPlayer.value, 
+            max_player: gameMaxPlayer.value
+        })
+    }
+
+    fetch(`${baseUrl}/games`, options)
 }

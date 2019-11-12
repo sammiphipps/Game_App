@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=KoHo&display=swap');
+
+body {
+    margin: 0;
+    padding: 0; 
+    font-family: 'KoHo', sans-serif;
+    background-color: rgb(255, 255, 240);
+}
+
+form > label {
+    display: inline-block;
+    width: 15%; 
+}
+
+.formElements {
+    width: 60%;
+}
+
+/* input[type="submit"] {
+
+} */

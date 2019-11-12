@@ -4,35 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="form.css" />
     <title>Update Games API</title>
 </head>
 <body>
     <form action="http://localhost:3000/games">
         <label>Game Name:</label>
-        <input name = "name"/>
+        <input name = "name" class="formElements"/>
         <br/>
         <label>Category:</label>
-        <select name= "category_id" id= "gameCategory">
-            <option disabled> Please Select A Category</option>
+        <select name= "category_id" id= "gameCategory"  class="formElements">
+            <option disabled selected> Please Select A Category</option>
         </select>
         <br/>
         <label>Description:</label>
-        <textarea name="description"></textarea>
+        <textarea name="description" class="formElements"></textarea>
         <br/>
         <label>Rules:</label>
-        <textarea name="basic_rules"></textarea>
+        <textarea name="basic_rules" class="formElements"></textarea>
         <br/>
         <label>Image Link:</label>
-        <input name="image_link"/>
+        <input name="image_link" class="formElements"/>
         <br/>
-        <label>Min Player:</label>
-        <input type="integer" name= "min_player"/>
+        <label>Min Players:</label>
+        <input type="integer" name= "min_player" class="formElements"/>
         <br/>
-        <label>Max Player:</label>
-        <input type="integer" name= "max_player"/>
+        <label>Max Players:</label>
+        <input type="integer" name= "max_player" class="formElements"/>
         <br/>
         <input type="submit"/>
-    
     </form>
+    <script src="form.js"></script>
 </body>
 </html>

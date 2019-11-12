@@ -3,7 +3,7 @@ const params = new URLSearchParams(window.location.search)
 const game_id = params.get("game_id")
 const form = document.querySelector("form")
 const gameName = document.querySelector('#name')
-const gameCategory = document.querySelector('select')
+let gameCategory = document.querySelector('select')
 const gameDescription = document.querySelector('#description')
 const gameRules = document.querySelector('#basic_rules')
 const gameImage = document.querySelector('#image_link')
@@ -20,18 +20,19 @@ fetch(`${baseUrl}/categories`)
 //using the variables pulled above change form based on it you are updating information or creating a new game
 if (game_id != null){
     fetch(`${baseUrl}/games/${game_id}`)
-    .then(response => response.json())
+        .then(response => response.json())
         .then(loadGameInfo)
         .catch(error => console.log(error))
 
-    updateFormButton("Update", updateFetch())
+    updateFormButton("Update", updateFetch)
 } 
 else {
-    updateFormButton("Submit", postFetch())
+    updateFormButton("Submit", postFetch)
 }
 
 
 function loadCategorySelect(categories){
+    const gameCategory = document.querySelector('select')
     categories.map(
         category => {
             const categoryOption = document.createElement('option')
@@ -47,7 +48,9 @@ function loadGameInfo(gameInfo){
     gameName.value = gameInfo.name
 
     //load category
+    console.log("Category ID", gameInfo.category.id)
     gameCategory.value = gameInfo.category.id
+    console.log(gameCategory.value)
 
     //load description 
     gameDescription.value = gameInfo.description
@@ -67,14 +70,16 @@ function loadGameInfo(gameInfo){
 
 function updateFormButton(content, fetchMethod){
     formButton.textContent = content
-    formButton.addEventListener("click", fetchMethod)
+    console.log("Game Category", gameCategory)
+    console.log("Game Category Value", gameCategory.value)
+    formButton.addEventListener("click", fetchMethod())
 }
 
 function updateFetch(){
     //set options needed for put request 
     const options = {
-        method: "PUT",
-        header: {
+        method: "PATCH",
+        headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -87,7 +92,7 @@ function updateFetch(){
             max_player: gameMaxPlayer.value
         })
     }
-
+    
     fetch(`${baseUrl}/games/${game_id}`, options)
 }
 
@@ -95,7 +100,7 @@ function postFetch(){
     //set options needed for post request
     const options = {
         method: "POST",
-        header: {
+        headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({

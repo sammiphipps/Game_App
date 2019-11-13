@@ -19,7 +19,7 @@ class GamesController < ApplicationController
             min_player: params[:min_player],
             max_player: params[:max_player]
         )
-        # redirect_to
+        # redirect_to "http://localhost:3001/show.html?category_id=" + game.category_id
     end 
 
     def update
@@ -33,12 +33,13 @@ class GamesController < ApplicationController
             min_player: params[:min_player],
             max_player: params[:max_player]
         )
-        # redirect_to
+        render json: game
+        # redirect_to "http://localhost:3001/show.html?category_id=" + game.category_id
     end 
 
     def delete
         game = Game.find(params[:id])
         game.destroy();
-        render json: {status: 205, message: game.name + "has been removed."}
+        # redirect_to "http://localhost:3001/show.html?category_id=" + game.category_id
     end 
 end

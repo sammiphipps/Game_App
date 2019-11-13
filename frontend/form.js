@@ -9,29 +9,17 @@ const gameRules = document.querySelector('#basic_rules')
 const gameImage = document.querySelector('#image_link')
 const gameMinPlayer = document.querySelector('#min_player')
 const gameMaxPlayer = document.querySelector('#max_player')
-const formButton = document.querySelector('#formButton')
+const updateButton = document.querySelector('#updateButton')
+const createButton = document.querySelector("#createButton")
 
 //send request to categories to load category select on the form 
 fetch(`${baseUrl}/categories`)
     .then(response => response.json())
     .then(loadCategorySelect)
+    .then(addEventListeners)
     .then(loadFormBasedOnGameId)
     .catch(error => console.log(error))
-
-function loadFormBasedOnGameId(){
-    if (game_id != null){
-        fetch(`${baseUrl}/games/${game_id}`)
-            .then(response => response.json())
-            .then(loadGameInfo)
-            .catch(error => console.log(error))
     
-        updateFormButton("Update", updateFetch)
-    } 
-    else {
-        updateFormButton("Submit", postFetch)
-    }
-}
-
 //using the variables pulled above change form based on it you are updating information or creating a new game
 function loadCategorySelect(categories){
     categories.map(
@@ -44,32 +32,43 @@ function loadCategorySelect(categories){
     )
 }
 
+function addEventListeners(){
+    updateButton.addEventListener("click", updateFetch)
+    createButton.addEventListener("click", postFetch)
+}
+
+function loadFormBasedOnGameId(){
+    if (game_id != null){
+        showUpdateButton()
+
+        fetch(`${baseUrl}/games/${game_id}`)
+            .then(response => response.json())
+            .then(loadGameInfo)
+            .catch(error => console.log(error))
+    } 
+    else {
+        showCreateButton()
+    }
+}
+
 function loadGameInfo(gameInfo){
-    //load Name
     gameName.value = gameInfo.name
-
-    //load category
     gameCategory.value = gameInfo.category.id
-
-    //load description 
     gameDescription.value = gameInfo.description
-
-    //load rules 
     gameRules.value = gameInfo.basic_rules
-
-    //load image link
     gameImage.value = gameInfo.image_link
-
-    //load min amount 
     gameMinPlayer.value = gameInfo.min_player
-
-    //load max amount 
     gameMaxPlayer.value = gameInfo.max_player
 }
 
-function updateFormButton(content, fetchMethod){
-    formButton.textContent = content
-    formButton.addEventListener("click", fetchMethod)
+function showUpdateButton(){
+    updateButton.style.display = "inline-block"
+    createButton.style.display = "none"
+}
+
+function showCreateButton(){
+    createButton.style.display = "inline-block"
+    updateButton.style.display = "none"
 }
 
 function updateFetch(){
@@ -90,7 +89,9 @@ function updateFetch(){
         })
     }
     
+    // console.log(options)
     fetch(`${baseUrl}/games/${game_id}`, options)
+        .then(window.location.replace(`http://localhost:3001/show.html?category_id=${gameCategory.value}`))
 }
 
 function postFetch(){
@@ -112,4 +113,5 @@ function postFetch(){
     }
 
     fetch(`${baseUrl}/games`, options)
+        .then(window.location.replace(`http://localhost:3001/show.html?category_id=${gameCategory.value}`))
 }

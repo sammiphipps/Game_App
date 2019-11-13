@@ -29,7 +29,7 @@ img {
     display: inline-block;
 }
 
-.buttonContainer > form {
+.buttonContainer > button {
     display: inline-block;
     margin-left: 1rem; 
 }
@@ -39,4 +39,8 @@ button {
     padding: 0.2rem 0.5rem;
     border-radius: 25px; 
     font-family: 'KoHo', sans-serif;
+}
+
+main > a {
+    text-align: center;
 }

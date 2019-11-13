@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=KoHo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 body{
     margin: 0;
     padding: 0; 
     font-family: 'KoHo', sans-serif;
-    background-color: rgb(255, 255, 240);
+    background: #d6cfca;
+
 }
 
-.card {
+/* .card {
     background-image: linear-gradient(rgba(255,0,0,0.3), rgba(255,0,0,0.8));    
 }
 
@@ -25,9 +27,51 @@ body{
 
 .other{
     background-image: linear-gradient( rgba(220,220,220,0.5), rgba(220,220,220,1));    
-}
+} */
 
 img{
     height: 16rem;
     width: 24rem;
+    padding: 2px;
+    border FONT-WEIGHT: 200;
+    background-color: #373737;
+}
+
+h1{
+    margin: 1.3rem;
+    font-size: 73px;
+    
+}
+
+h3{
+    font-size: larger;
+}
+p{
+    font-size: large;
+}
+
+a{
+    text-decoration-line: none;
+    font-family: 'KoHo', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    color: #e4b75a;
+    background-color: #4b4842 ;
+    font-family: 'Teko', sans-serif;
+    
+}
+
+.navBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.3rem;
+}
+
+button{
+    background-color: #e4b75a;
+    border-color:#373737;
 }

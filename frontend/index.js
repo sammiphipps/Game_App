@@ -1,6 +1,9 @@
 const backendUrl = 'http://localhost:3000'
 const mainContainer = document.querySelector('main');
 const gameOfDayBox = document.createElement('div')
+const navBar = document.createElement('div')
+navBar.className = "navBar"
+gameOfDayBox.className = "gameBox"
 
 fetch(`${backendUrl}/categories`)
     .then(response => response.json())
@@ -11,16 +14,19 @@ function loadCategories(categories){
     categories.map(category => {
         const link = document.createElement('a')
         const button = document.createElement('button')
+        const header = document.querySelector('header')
+     
 
         link.href= `show.html?category_id=${category.id}`
         button.textContent = category.name
         button.className = category.name.toLowerCase()
 
         button.style.fontSize = "24px"
-        button.style.borderRadius = "25px"
+        // button.style.borderRadius = "25px"
         button.style.fontFamily = "'KoHo', sans-serif"
-        button.style.padding = "0.2rem 1.5rem"
-        mainContainer.appendChild(link)
+        // button.style.padding = "0.2rem 1.5rem"
+        header.appendChild(navBar)
+        navBar.appendChild(link)
         link.appendChild(button)
 
     })

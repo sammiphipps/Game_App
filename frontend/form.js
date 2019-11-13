@@ -48,6 +48,7 @@ function loadFormBasedOnGameId(){
     } 
     else {
         showCreateButton()
+        selectPromptOption()
     }
 }
 
@@ -69,6 +70,11 @@ function showUpdateButton(){
 function showCreateButton(){
     createButton.style.display = "inline-block"
     updateButton.style.display = "none"
+}
+
+function selectPromptOption(){
+    const promptOption = gameCategory.querySelector('option')
+    promptOption.selected = true
 }
 
 function updateFetch(){

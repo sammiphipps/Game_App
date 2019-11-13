@@ -136,10 +136,9 @@ Game.create(
     name: "Entwined",
     category: video,
     description: "A rhythm based game. The story is about two souls, a bird and a fish, that are in love but can't be together. Once united, the two souls will transform into a magnificent soaring dragon.",
-    basic_rules: "The player is tasked with guiding the two souls simultaneously, one with each analog stick, to guide them through colored rings.",
+    basic_rules: "The player is tasked with controlling the two souls simultaneously, one with each analog stick, to guide them through colored rings.",
     image_link: "https://i1.wp.com/www.geeksundergrace.com/wp-content/uploads/2014/06/entwined-screenshot-04.jpg",
-    min_player: 1,
-    max_player: 1 
+    min_player: 1, 
 )
 
 Game.create(

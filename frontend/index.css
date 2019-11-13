@@ -26,3 +26,8 @@ body{
 .other{
     background-image: linear-gradient( rgba(220,220,220,0.5), rgba(220,220,220,1));    
 }
+
+img{
+    height: 16rem;
+    width: 24rem;
+}

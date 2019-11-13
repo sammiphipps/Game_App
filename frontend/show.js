@@ -1,9 +1,9 @@
 const params = new URLSearchParams(window.location.search)
 const category_id = params.get('category_id')
 const mainContainer = document.querySelector('main')
-BASE_URL = 'http://localhost:3000'
+backendUrl = 'http://localhost:3000'
 
-fetch(`${BASE_URL}/categories/${category_id}`)
+fetch(`${backendUrl}/categories/${category_id}`)
     .then(response => response.json())
     .then(loadPage)
     .catch(error => console.log(error))
@@ -27,8 +27,10 @@ function loadGames(games){
         const gameContainer = document.createElement('div')
         gameContainer.className = "gameContainer"
         mainContainer.appendChild(gameContainer)
+
         //create figure container to hold image and number of players 
         const gameFigure = document.createElement('figure')
+
         const gameImage = document.createElement('img')
         gameImage.alt = game.name
         gameImage.src = game.image_link
@@ -41,32 +43,37 @@ function loadGames(games){
             gameImageCaption.textContent += ` - ${game.max_player}` 
         
         gameFigure.append(gameImage, gameImageCaption)
-        //h2 for title 
+
+        //game title
         const gameTitle = document.createElement('h2')
         gameTitle.textContent = game.name
-        //p for description
+
+        //game description
         const gameDescription = document.createElement('p')
         gameDescription.textContent = `Description: ${game.description}`
-        //p for rules 
+
+        //game rules 
         const gameRules = document.createElement('p')
         gameRules.textContent = `Rules: ${game.basic_rules}`
+
         //create container for buttons 
         const buttonContainer = document.createElement('div')
         buttonContainer.className = "buttonContainer"
-        //button link for update button to form 
+
+        //update button that links to the form
         const updateLink = document.createElement('a')
         updateLink.innerHTML = `<button>Update</button>`
         updateLink.href = `form.html?game_id=${game.id}`
-        //delete link
-        const deleteForm = document.createElement('form')
-        // deleteForm.method = "DELETE"
-        // deleteForm.action = `${BASE_URL}/games/${game.id}`
 
-        const deleteSubmit = document.createElement('button')
-        deleteSubmit.textContent = "Delete"
-        deleteForm.appendChild(deleteSubmit)
-
-        buttonContainer.append(updateLink, deleteForm)
+        //delete button
+        const deleteButton = document.createElement('button')
+        deleteButton.textContent = "Delete"
+        deleteButton.addEventListener("click", (event) => {
+            fetch(`${backendUrl}/games/${game.id}`, {method: 'DELETE'}) 
+                .then(window.location.replace(`http://localhost:3001/show.html?category_id=${game.category_id}`))    
+        })
+        buttonContainer.append(updateLink, deleteButton)
+        
         //append everything to the container
         gameContainer.append(gameFigure, gameTitle, gameDescription, gameRules, buttonContainer)
     })

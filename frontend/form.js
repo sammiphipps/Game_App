@@ -1,9 +1,9 @@
-const baseUrl = 'http://localhost:3000'
+const backendUrl = 'http://localhost:3000'
 const params = new URLSearchParams(window.location.search)
-const game_id = params.get("game_id")
+const gameId = params.get("game_id")
 const form = document.querySelector("form")
 const gameName = document.querySelector('#name')
-let gameCategory = document.querySelector('select')
+const gameCategory = document.querySelector('select')
 const gameDescription = document.querySelector('#description')
 const gameRules = document.querySelector('#basic_rules')
 const gameImage = document.querySelector('#image_link')
@@ -13,7 +13,7 @@ const updateButton = document.querySelector('#updateButton')
 const createButton = document.querySelector("#createButton")
 
 //send request to categories to load category select on the form 
-fetch(`${baseUrl}/categories`)
+fetch(`${backendUrl}/categories`)
     .then(response => response.json())
     .then(loadCategorySelect)
     .then(addEventListeners)
@@ -38,10 +38,10 @@ function addEventListeners(){
 }
 
 function loadFormBasedOnGameId(){
-    if (game_id != null){
+    if (gameId != null){
         showUpdateButton()
 
-        fetch(`${baseUrl}/games/${game_id}`)
+        fetch(`${backendUrl}/games/${gameId}`)
             .then(response => response.json())
             .then(loadGameInfo)
             .catch(error => console.log(error))
@@ -96,7 +96,7 @@ function updateFetch(){
     }
     
     // console.log(options)
-    fetch(`${baseUrl}/games/${game_id}`, options)
+    fetch(`${backendUrl}/games/${gameId}`, options)
         .then(window.location.replace(`http://localhost:3001/show.html?category_id=${gameCategory.value}`))
 }
 
@@ -118,6 +118,6 @@ function postFetch(){
         })
     }
 
-    fetch(`${baseUrl}/games`, options)
+    fetch(`${backendUrl}/games`, options)
         .then(window.location.replace(`http://localhost:3001/show.html?category_id=${gameCategory.value}`))
 }

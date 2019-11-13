@@ -8,33 +8,47 @@
     <title>Update Games API</title>
 </head>
 <body>
-    <form>
-        <label>Game Name:</label>
-        <input name = "name" id="name" class="formElements"/>
-        <br/>
-        <label>Category:</label>
-        <select name= "category_id" id= "gameCategory"  class="formElements">
-            <option disabled> Please Select A Category</option>
-        </select>
-        <br/>
-        <label>Description:</label>
-        <textarea name="description" id="description" class="formElements"></textarea>
-        <br/>
-        <label>Rules:</label>
-        <textarea name="basic_rules" id="basic_rules" class="formElements"></textarea>
-        <br/>
-        <label>Image Link:</label>
-        <input name="image_link" id="image_link" class="formElements"/>
-        <br/>
-        <label>Min Players:</label>
-        <input type="integer" name= "min_player" id="min_player" class="formElements"/>
-        <br/>
-        <label>Max Players:</label>
-        <input type="integer" name= "max_player" id="max_player" class="formElements"/>
-        <br/>
-    </form>
-    <button id="updateButton">Update</button>
-    <button id="createButton">Create Game</button>
+    <header>
+        <h2>Game Form</h2>
+    </header>
+    <main>
+        <form>
+            <div>
+                <label>Game Name:</label>
+                <input name = "name" id="name" class="formElements"/>
+            </div>
+            <div>
+                <label>Category:</label>
+                <select name= "category_id" id= "gameCategory"  class="formElements">
+                    <option disabled> Please Select A Category</option>
+                </select>
+            </div>
+            <div>
+                <label>Description:</label>
+                <textarea name="description" id="description" class="formElements"></textarea>
+            </div>
+            <div>
+                <label>Rules:</label>
+                <textarea name="basic_rules" id="basic_rules" class="formElements"></textarea>
+            </div>
+            <div>
+                <label>Image Link:</label>
+                <input name="image_link" id="image_link" class="formElements"/>
+            </div>
+            <div>
+                <label>Min Players:</label>
+                <input type="integer" name= "min_player" id="min_player" class="formElements"/>
+            </div>
+            <div>
+                <label>Max Players:</label>
+                <input type="integer" name= "max_player" id="max_player" class="formElements"/>
+            </div>
+        </form>
+        <div id="buttons">
+            <button id="updateButton">Update</button>
+            <button id="createButton">Create Game</button>
+        </div>
+    </main>
     <script src="form.js"></script>
 </body>
 </html>

@@ -15,24 +15,25 @@ const formButton = document.querySelector('#formButton')
 fetch(`${baseUrl}/categories`)
     .then(response => response.json())
     .then(loadCategorySelect)
+    .then(loadFormBasedOnGameId)
     .catch(error => console.log(error))
 
-//using the variables pulled above change form based on it you are updating information or creating a new game
-if (game_id != null){
-    fetch(`${baseUrl}/games/${game_id}`)
-        .then(response => response.json())
-        .then(loadGameInfo)
-        .catch(error => console.log(error))
-
-    updateFormButton("Update", updateFetch)
-} 
-else {
-    updateFormButton("Submit", postFetch)
+function loadFormBasedOnGameId(){
+    if (game_id != null){
+        fetch(`${baseUrl}/games/${game_id}`)
+            .then(response => response.json())
+            .then(loadGameInfo)
+            .catch(error => console.log(error))
+    
+        updateFormButton("Update", updateFetch)
+    } 
+    else {
+        updateFormButton("Submit", postFetch)
+    }
 }
 
-
+//using the variables pulled above change form based on it you are updating information or creating a new game
 function loadCategorySelect(categories){
-    const gameCategory = document.querySelector('select')
     categories.map(
         category => {
             const categoryOption = document.createElement('option')
@@ -48,9 +49,7 @@ function loadGameInfo(gameInfo){
     gameName.value = gameInfo.name
 
     //load category
-    console.log("Category ID", gameInfo.category.id)
     gameCategory.value = gameInfo.category.id
-    console.log(gameCategory.value)
 
     //load description 
     gameDescription.value = gameInfo.description
@@ -70,9 +69,7 @@ function loadGameInfo(gameInfo){
 
 function updateFormButton(content, fetchMethod){
     formButton.textContent = content
-    console.log("Game Category", gameCategory)
-    console.log("Game Category Value", gameCategory.value)
-    formButton.addEventListener("click", fetchMethod())
+    formButton.addEventListener("click", fetchMethod)
 }
 
 function updateFetch(){

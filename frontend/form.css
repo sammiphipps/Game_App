@@ -4,14 +4,49 @@ body {
     margin: 0;
     padding: 0; 
     font-family: 'KoHo', sans-serif;
+    font-size: 16px; 
     background-color: rgb(255, 255, 240);
 }
 
-form > label {
+header {
+    text-align: center;
+}
+
+form {
+    margin-left: 14rem; 
+    margin-top: 1rem; 
+}
+
+form > div {
+    margin-bottom: 0.5rem;
+}
+
+form > div > label {
     display: inline-block;
+    vertical-align: top;
     width: 15%; 
 }
 
 .formElements {
+    font-size: 14px; 
     width: 60%;
+}
+
+input[class=formElements]{
+    height: 1.5rem;
+}
+
+textarea[class=formElements]{
+    height: 5rem;
+}
+
+main > div {
+    display: grid; 
+    justify-content: center;
+}
+
+main > div > button {
+    font-size: 15px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 25px;    
 }

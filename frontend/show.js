@@ -69,9 +69,10 @@ function loadGames(games){
         const deleteButton = document.createElement('button')
         deleteButton.textContent = "Delete"
         deleteButton.addEventListener("click", (event) => {
-            fetch(`${backendUrl}/games/${game.id}`, {method: 'DELETE'}) 
-                .then(window.location.replace(`http://localhost:3001/show.html?category_id=${game.category_id}`))    
+            deleteFetch(game.id, game.category_id)
         })
+
+        //append both update and delete to buttonContainer
         buttonContainer.append(updateLink, deleteButton)
         
         //append everything to the container
@@ -84,4 +85,9 @@ function addCreateGameLink(){
     formLink.innerHTML = `<button>Create Another Game</button>`
     formLink.href = `form.html`
     mainContainer.append(formLink)
+}
+
+function deleteFetch(gameId, previousCategoryId){
+    fetch(`${backendUrl}/games/${gameId}`, { method: "DELETE" })
+        .then(window.location.replace(`http://localhost:3001/show.html?category_id=${previousCategoryId}`))
 }

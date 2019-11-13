@@ -11,6 +11,7 @@ fetch(`${BASE_URL}/categories/${category_id}`)
 function loadPage(category){
     loadHeader(category.name)
     loadGames(category.games)
+    addCreateGameLink()
 }
 
 function loadHeader(category_name){
@@ -69,4 +70,11 @@ function loadGames(games){
         //append everything to the container
         gameContainer.append(gameFigure, gameTitle, gameDescription, gameRules, buttonContainer)
     })
+}
+
+function addCreateGameLink(){
+    const formLink = document.createElement('a')
+    formLink.innerHTML = `<button>Create Another Game</button>`
+    formLink.href = `form.html`
+    mainContainer.append(formLink)
 }

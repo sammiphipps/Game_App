@@ -8,7 +8,7 @@
     <title>Update Games API</title>
 </head>
 <body>
-    <form action="http://localhost:3000/games">
+    <form>
         <label>Game Name:</label>
         <input name = "name" id="name" class="formElements"/>
         <br/>
@@ -32,8 +32,9 @@
         <label>Max Players:</label>
         <input type="integer" name= "max_player" id="max_player" class="formElements"/>
         <br/>
-        <button id="formButton"></button>
     </form>
+    <button id="updateButton">Update</button>
+    <button id="createButton">Create Game</button>
     <script src="form.js"></script>
 </body>
 </html>

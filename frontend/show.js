@@ -1,9 +1,9 @@
+const backendUrl = 'http://localhost:3000'
 const params = new URLSearchParams(window.location.search)
-const category_id = params.get('category_id')
+const categoryId = params.get('category_id')
 const mainContainer = document.querySelector('main')
-backendUrl = 'http://localhost:3000'
 
-fetch(`${backendUrl}/categories/${category_id}`)
+fetch(`${backendUrl}/categories/${categoryId}`)
     .then(response => response.json())
     .then(loadPage)
     .catch(error => console.log(error))
@@ -14,15 +14,16 @@ function loadPage(category){
     addCreateGameLink()
 }
 
-function loadHeader(category_name){
+function loadHeader(categoryName){
     const header = document.querySelector('header')
     const pageTitle = document.createElement('h1')
-    pageTitle.textContent = category_name + " Games"
+    pageTitle.textContent = categoryName + " Games"
     header.appendChild(pageTitle)
 }
 
 function loadGames(games){
     games.map(game => {
+
         //create a div container
         const gameContainer = document.createElement('div')
         gameContainer.className = "gameContainer"
@@ -77,6 +78,7 @@ function loadGames(games){
         
         //append everything to the container
         gameContainer.append(gameFigure, gameTitle, gameDescription, gameRules, buttonContainer)
+
     })
 }
 

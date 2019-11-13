@@ -33,7 +33,7 @@ img{
     height: 16rem;
     width: 24rem;
     padding: 2px;
-    border FONT-WEIGHT: 200;
+    font-weight: 200;
     background-color: #373737;
 }
 

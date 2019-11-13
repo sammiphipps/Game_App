@@ -34,16 +34,22 @@ fetch('http://localhost:3000/games')
     function FeaturedGame(games){
         let gameOfDay = games[Math.floor(Math.random() * games.length)]
         const gameOfDayImg = document.createElement('img')
-        const gameOfDayName = document.createElement('h2')
+        const randomGame = document.createElement('h2')
+        const gameOfDayName = document.createElement('h3')
         const gameOfDayBlurb = document.createElement('p')
+        const a = document.createElement('a')
 
+        randomGame.innerText = "Does this Game Spark Joy?"
         gameOfDayImg.alt = gameOfDay.name
         gameOfDayImg.src = gameOfDay.image_link
-        gameOfDayName.textContent = `A Random Game for You: ${gameOfDay.name}`
+        gameOfDayName.textContent = `${gameOfDay.name}`
         gameOfDayBlurb.textContent = gameOfDay.description
-        gameOfDayBox.append(gameOfDayImg, gameOfDayName, gameOfDayBlurb)
+        a.innerText = ` Click here to see more games like ${gameOfDay.name}`
+        a.href = `show.html?category_id=${gameOfDay.category.id}`
+        gameOfDayBox.append(randomGame,gameOfDayName, gameOfDayImg, gameOfDayBlurb, a )
         mainContainer.append(gameOfDayBox)
     }
+
 
 
     

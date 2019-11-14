@@ -89,7 +89,7 @@ Game.create(
     category: drinking,
     description: "Players throw a ping pong ball into cups (often of beer).",
     basic_rules: "Teams take turns throwing or bouncing ping pong balls across the table, attempting to make it into one of a series of cups. Should the ball land in a cup, that cup is removed from the table until all are gone. Losing team drinks.",
-    image_link: "https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1705/wavebreakmediamicro170501108/77566969-friends-enjoying-beer-pong-game-on-table-in-bar.jpg",
+    image_link: "https://i.ytimg.com/vi/5eZRsBz_MIg/maxresdefault.jpg",
     min_player: 2,
     max_player: 4
 )

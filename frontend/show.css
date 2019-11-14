@@ -7,8 +7,16 @@ body {
     background-color: rgb(255, 255, 240);
 }
 
+
+header{
+    background-color: #373737;
+}
 h1 {
     text-align: center;
+    margin: 1.3rem;
+    font-size: 63px;
+    text-shadow: 2px 2px 2px #0D1F2D;
+        
 }
 
 main {

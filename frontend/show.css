@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=KoHo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 body {
     margin: 0px;
     padding: 0px; 
     font-family: 'KoHo', sans-serif;
-    background-color: rgb(255, 255, 240);
+    background-color: #d6cfca;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    color: #e4b75a;
+    background-color: #4b4842 ;
+    font-family: 'Teko', sans-serif;
 }
 
 
@@ -12,11 +21,11 @@ header{
     background-color: #373737;
 }
 h1 {
+
     text-align: center;
     margin: 1.3rem;
     font-size: 63px;
     text-shadow: 2px 2px 2px #0D1F2D;
-        
 }
 
 main {
@@ -37,7 +46,7 @@ img {
     display: inline-block;
 }
 
-.buttonContainer > form {
+.buttonContainer > button {
     display: inline-block;
     margin-left: 1rem; 
 }
@@ -47,4 +56,9 @@ button {
     padding: 0.2rem 0.5rem;
     border-radius: 25px; 
     font-family: 'KoHo', sans-serif;
+    background-color: rgb(255,255,240)
+}
+
+main > a {
+    text-align: center;
 }

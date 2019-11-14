@@ -1,19 +1,70 @@
 @import url('https://fonts.googleapis.com/css?family=KoHo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 body {
     margin: 0;
     padding: 0; 
     font-family: 'KoHo', sans-serif;
-    background-color: rgb(255, 255, 240);
+    font-size: 16px; 
+    background-color: #d6cfca;
 }
 
-form > label {
+header {
+    display: flex;
+    justify-content: space-between;
+    color: #e4b75a;
+    background-color: #4b4842 ;
+    font-family: 'Teko', sans-serif;
+}
+
+h1 {
+    margin: 1.3rem;
+    font-size: 73px;    
+}
+
+form {
+    margin-left: 22rem; 
+    margin-top: 1rem; 
+}
+
+form > div {
+    margin-bottom: 0.5rem;
+}
+
+form > div > label {
     display: inline-block;
-    width: 15%; 
+    vertical-align: top;
+    width: 9%; 
 }
 
 .formElements {
+    box-sizing: border-box;
+    font-family: 'KoHo', sans-serif;    
+    font-size: 14px; 
     width: 60%;
 }
 
+
+input[class=formElements]{
+    height: 1.5rem;
+}
+
+select[class=formElements]{
+    height: 1.8rem;
+}
+
+textarea[class=formElements]{
+    height: 5rem;
+}
+
+main > div {
+    display: grid; 
+    justify-content: center;
+}
+
+main > div > button {
+    font-size: 15px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 25px;
+}
 

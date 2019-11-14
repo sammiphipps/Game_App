@@ -2,6 +2,8 @@ const backendUrl = 'http://localhost:3000'
 const mainContainer = document.querySelector('main');
 const gameOfDayBox = document.createElement('div')
 const navBar = document.createElement('div')
+const buttonBar = document.createElement('div')
+const buttonInstructions = document.querySelector('h3')
 navBar.className = "navBar"
 gameOfDayBox.className = "gameBox"
 
@@ -21,15 +23,17 @@ function loadCategories(categories){
         button.textContent = category.name
         button.className = category.name.toLowerCase()
 
-        button.style.fontSize = "24px"
+        // button.style.fontSize = "24px"
         // button.style.borderRadius = "25px"
-        button.style.fontFamily = "'KoHo', sans-serif"
+        // button.style.fontFamily = "'KoHo', sans-serif"
         // button.style.padding = "0.2rem 1.5rem"
         header.appendChild(navBar)
-        navBar.appendChild(link)
+        navBar.appendChild(buttonBar)
+        buttonBar.append(link)
         link.appendChild(button)
 
     })
+    navBar.appendChild(buttonInstructions)
 }
 
 fetch(`${backendUrl}/games`)

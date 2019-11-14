@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=KoHo&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Teko&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Teko&display=swap');
 
 body{
     margin: 0;
@@ -32,17 +33,22 @@ img{
     height: 16rem;
     width: 24rem;
     padding: 2px;
-    border FONT-WEIGHT: 200;
     background-color: #373737;
+    height: auto;
+    width: 100%;
 }
 
 h1{
     margin: 1.3rem;
     font-size: 73px;
+    text-shadow: 2px 2px 2px #0D1F2D;
 }
 
 h3{
     font-size: larger;
+    font-family: 'Comfortaa', cursive;
+    margin: none;
+    text-shadow: 1px 1px 1px #0D1F2D;
 }
 p{
     font-size: large;
@@ -56,19 +62,44 @@ a{
 header{
     display: flex;
     justify-content: space-between;
-    color: #e4b75a;
+    color: #e88539;
     background-color: #4b4842 ;
     font-family: 'Teko', sans-serif;
 }
 
-.navBar{
+.buttonBar{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1.3rem;
 }
+.navBar{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    
+}
 
 button{
-    background-color: #e4b75a;
+    /* background-color: #e4b75a; */
+    background-color: #ffffffad;
     border-color:#373737;
+    /* font-family: 'KoHo', sans-serif; */
+    font-family: 'Comfortaa', cursive;
+    font-size: 18px;
 }
+
+.gameBox{
+    background:#ffffffad;
+    border-radius: 10px;
+    width: 33%;
+    border: solid 2px  #0D1F2D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+

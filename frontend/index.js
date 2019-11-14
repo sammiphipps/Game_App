@@ -23,10 +23,6 @@ function loadCategories(categories){
         button.textContent = category.name
         button.className = category.name.toLowerCase()
 
-        // button.style.fontSize = "24px"
-        // button.style.borderRadius = "25px"
-        // button.style.fontFamily = "'KoHo', sans-serif"
-        // button.style.padding = "0.2rem 1.5rem"
         header.appendChild(navBar)
         navBar.appendChild(buttonBar)
         buttonBar.append(link)
@@ -49,12 +45,12 @@ fetch(`${backendUrl}/games`)
         const gameOfDayBlurb = document.createElement('p')
         const a = document.createElement('a')
 
-        randomGame.innerText = "Does this Game Spark Joy?"
+        randomGame.innerText = "Checkout this Game:"
         gameOfDayImg.alt = gameOfDay.name
         gameOfDayImg.src = gameOfDay.image_link
         gameOfDayName.textContent = `${gameOfDay.name}`
         gameOfDayBlurb.textContent = gameOfDay.description
-        a.innerText = ` Click here to see more games like ${gameOfDay.name}`
+        a.innerText = `<<Click here to see more games like ${gameOfDay.name} >>`
         a.href = `show.html?category_id=${gameOfDay.category.id}`
         gameOfDayBox.append(randomGame,gameOfDayName, gameOfDayImg, gameOfDayBlurb, a )
         mainContainer.append(gameOfDayBox)

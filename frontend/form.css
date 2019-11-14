@@ -44,6 +44,7 @@ form > div > label {
     width: 60%;
 }
 
+
 input[class=formElements]{
     height: 1.5rem;
 }
@@ -66,3 +67,4 @@ main > div > button {
     padding: 0.2rem 0.5rem;
     border-radius: 25px;
 }
+

@@ -1,10 +1,13 @@
+const backendUrl = 'http://localhost:3000'
 const mainContainer = document.querySelector('main');
 const gameOfDayBox = document.createElement('div')
 const navBar = document.createElement('div')
+const buttonBar = document.createElement('div')
+const buttonInstructions = document.querySelector('h3')
 navBar.className = "navBar"
 gameOfDayBox.className = "gameBox"
 
-fetch('http://localhost:3000/categories')
+fetch(`${backendUrl}/categories`)
     .then(response => response.json())
     .then(loadCategories)
     .catch(error => console.log(error))
@@ -14,27 +17,29 @@ function loadCategories(categories){
         const link = document.createElement('a')
         const button = document.createElement('button')
         const header = document.querySelector('header')
-        
+     
 
         link.href= `show.html?category_id=${category.id}`
         button.textContent = category.name
         button.className = category.name.toLowerCase()
 
-        button.style.fontSize = "24px"
+        // button.style.fontSize = "24px"
         // button.style.borderRadius = "25px"
-        button.style.fontFamily = "'KoHo', sans-serif"
+        // button.style.fontFamily = "'KoHo', sans-serif"
         // button.style.padding = "0.2rem 1.5rem"
         header.appendChild(navBar)
-        navBar.appendChild(link)
+        navBar.appendChild(buttonBar)
+        buttonBar.append(link)
         link.appendChild(button)
 
     })
+    navBar.appendChild(buttonInstructions)
 }
 
-fetch('http://localhost:3000/games')
+fetch(`${backendUrl}/games`)
     .then(response => response.json())
     .then(FeaturedGame)
-    .catch(error => console.log("oopsie " + error))
+    .catch(error => console.log(error))
 
     function FeaturedGame(games){
         let gameOfDay = games[Math.floor(Math.random() * games.length)]

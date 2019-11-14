@@ -14,7 +14,8 @@ img{
     width: 24rem;
     padding: 2px;
     background-color: #373737;
-    max-height: 312px;
+    /* max-height: 312px; */
+    max-height: 18rem;
     max-width: 100%
 }
 

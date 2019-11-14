@@ -17,8 +17,11 @@ function loadPage(category){
 function loadHeader(categoryName){
     const header = document.querySelector('header')
     const pageTitle = document.createElement('h1')
+    const homePageButton = document.createElement('a')
+    homePageButton.innerText = "GS"
+    homePageButton.href = "/home"
     pageTitle.textContent = categoryName + " Games"
-    header.appendChild(pageTitle)
+    header.append(pageTitle, homePageButton)
 }
 
 function loadGames(games){

@@ -12,14 +12,23 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    color: #e4b75a;
+    color: #e88539;
     background-color: #4b4842 ;
     font-family: 'Teko', sans-serif;
 }
 
 h1 {
     margin: 1.3rem;
-    font-size: 73px;    
+    font-size: 73px;
+    text-shadow: 1px 1px 1px #0D1F2D    
+}
+
+a{
+    font-size: 47px;
+    margin-right: 1.3rem;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #0D1F2D;
+    color: #e88539
 }
 
 form {
@@ -66,5 +75,13 @@ main > div > button {
     font-size: 15px;
     padding: 0.2rem 0.5rem;
     border-radius: 25px;
+}
+
+main > div > button:hover{
+    color:#8f8984
+}
+
+main > div > button:active{
+    color: #e8a16b;
 }
 

@@ -4,6 +4,7 @@ const gameOfDayBox = document.createElement('div')
 const navBar = document.createElement('div')
 const buttonBar = document.createElement('div')
 const buttonInstructions = document.querySelector('h3')
+const homePageInfoAndGameBox = document.querySelector('div')
 navBar.className = "navBar"
 gameOfDayBox.className = "gameBox"
 
@@ -53,7 +54,7 @@ fetch(`${backendUrl}/games`)
         a.innerText = `<<Click here to see more games like ${gameOfDay.name} >>`
         a.href = `show.html?category_id=${gameOfDay.category.id}`
         gameOfDayBox.append(randomGame,gameOfDayName, gameOfDayImg, gameOfDayBlurb, a )
-        mainContainer.append(gameOfDayBox)
+        homePageInfoAndGameBox.prepend(gameOfDayBox)
     }
 
 

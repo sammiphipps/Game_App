@@ -25,6 +25,10 @@ h1{
     text-shadow: 2px 2px 2px #0D1F2D;
 }
 
+h2{
+    margin: 1.3rem
+}
+
 h3{
     font-size: larger;
     font-family: 'Comfortaa', cursive;

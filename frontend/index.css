@@ -48,11 +48,17 @@ a:hover{
     color: #e88539
 }
 
+a:active,
+a:focus{
+    color: #e8a16b;
+    outline:0;
+}
+
 header{
     display: flex;
     justify-content: space-between;
     color: #e88539;
-    background-color: #4b4842 ;
+    background-color: #373737 ;
     font-family: 'Teko', sans-serif;
 }
 
@@ -73,10 +79,15 @@ header{
 button:hover{
     color: #e88539
 }
+button:active,
+button:focus{
+    color: #e8a16b;
+    outline:0;
+}
 
 button{
     /* background-color: #e4b75a; */
-    background-color: #ffffffad;
+    background-color: rgb(241,220,214);
     border-color:#373737;
     /* font-family: 'KoHo', sans-serif; */
     font-family: 'Comfortaa', cursive;
@@ -84,7 +95,7 @@ button{
 }
 
 .gameBox{
-    background:#ffffffad;
+    background:rgb(241,220,214);
     border-radius: 10px;
     width: 33%;
     border: solid 2px  #0D1F2D;
@@ -92,6 +103,32 @@ button{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    float: left;
 }
+
+.GSinfo{
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    width:33%
+}
+
+main > div{
+    display: flex;
+    justify-content: space-around;
+}
+
+main > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%; 
+}
+
+.blurbBox{
+    /* margin-top: 2rem; */
+    font-size: 20px;
+}
+
+
 

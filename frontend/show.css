@@ -61,6 +61,16 @@ button {
     background-color: rgb(255,255,240)
 }
 
+button:hover{
+    color:#8f8984
+}
+
+button:active,
+button:focus{
+    color: #e8a16b;
+    outline:0;
+}
+
 main > a {
     text-align: center;
 }
@@ -70,5 +80,11 @@ header > a{
     text-decoration: none;
     text-shadow: 1px 1px 1px #0D1F2D;
     margin-right: 1.3rem;
-    font-size: 40px
+    font-size: 47px
+}
+
+a:active,
+a:focus{
+    color: #8e4a16;
+    outline:0;
 }

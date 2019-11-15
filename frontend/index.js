@@ -51,7 +51,7 @@ fetch(`${backendUrl}/games`)
         gameOfDayImg.src = gameOfDay.image_link
         gameOfDayName.textContent = `${gameOfDay.name}`
         gameOfDayBlurb.textContent = gameOfDay.description
-        a.innerText = `<<Click here to see more games like ${gameOfDay.name} >>`
+        a.innerText = `<< Click here to see more games like ${gameOfDay.name} >>`
         a.href = `show.html?category_id=${gameOfDay.category.id}`
         gameOfDayBox.append(randomGame,gameOfDayName, gameOfDayImg, gameOfDayBlurb, a )
         homePageInfoAndGameBox.prepend(gameOfDayBox)

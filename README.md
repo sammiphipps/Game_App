@@ -4,9 +4,9 @@ Our app, Game Source, presents a list of games by a category type. Once a game t
 
 # Instructions for Downloading #
 
-1. Download the repo by forking it and then use git clone in the folder you wish to put it. 
+1. Download the repo by forking it and then using git clone in the folder you wish to put it. 
 
-2. Cd into the backend folder and run bundle install in the command line. 
+2. Move into the backend folder by typing cd backend and run bundle install in the command line. 
 
 3. To migrate the database, run rails db:migrate. Then, type in rails db:seed to fill the database with starter games and categories. 
 
